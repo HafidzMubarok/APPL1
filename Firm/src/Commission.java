@@ -23,14 +23,14 @@ public class Commission extends Hourly
     }
     
     public double pay(){
-        double payment = super.pay()+ tSales;
+        double payment = super.pay()+ tSales*commissionRate;
         tSales = 0;
         return payment;
     }
     
     public String toString(){
         String result = super.toString();
-        result += "\nCurrent hours: " + tSales;
+        result += "\nTotal Sales: " + tSales;
         return result;
     }
     
