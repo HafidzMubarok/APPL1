@@ -32,8 +32,8 @@ public class Staff
         ((Hourly)staffList[3]).addHours (40);
         ((Hourly)staffList[6]).addHours (35);
         ((Commission)staffList[6]).addSales (400);
-        ((Hourly)staffList[6]).addHours (40);
-        ((Commission)staffList[6]).addSales (950);
+        ((Hourly)staffList[7]).addHours (40);
+        ((Commission)staffList[7]).addSales (950);
     }
     //-----------------------------------------------------------------
     // Pays all staff members.
