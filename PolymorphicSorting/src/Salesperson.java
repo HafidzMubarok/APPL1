@@ -40,8 +40,15 @@ public class Salesperson implements Comparable
     //--------------------------------------------------
     public int compareTo(Object other)
     {
-        int result;
+        int result = 0;
+        Salesperson obj = (Salesperson) other;
+        if(this.totalSales < obj.totalSales) {
+            result = -1;
+        }else if(this.totalSales > obj.totalSales) {
+            result = 1;
+        }
         return result;
+        
     }
     //-------------------------
     // First name accessor.
