@@ -46,6 +46,13 @@ public class Salesperson implements Comparable
             result = -1;
         }else if(this.totalSales > obj.totalSales) {
             result = 1;
+        }else  {
+            int k = this.firstName.compareTo(obj.firstName);
+            if(k != 0) {
+                result = k;
+            } else {
+                result = this.lastName.compareTo(obj.lastName);
+            }
         }
         return result;
         
