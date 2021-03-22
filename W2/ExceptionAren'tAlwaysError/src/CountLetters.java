@@ -17,13 +17,18 @@ public class CountLetters
         String word = scan.nextLine(); 
         //convert to all upper case 
         word = word.toUpperCase(); 
-        //count frequency of each letter in string 
-        for (int i=0; i < word.length(); i++) 
-        counts[word.charAt(i)-'A']++; 
+        //count frequency of each letter in string
+        try{
+            for (int i=0; i < word.length(); i++) 
+                counts[word.charAt(i)-'A']++;   
+        }
+        catch(Exception e){
+            System.out.println("Wrong input: shouldn't input a non-letter");
+        }
         //print frequencies 
         System.out.println(); 
         for (int i=0; i < counts.length; i++) 
-        if (counts [i] != 0) 
-        System.out.println((char)(i +'A') + ": " + counts[i]); 
+            if (counts [i] != 0) 
+                System.out.println((char)(i +'A') + ": " + counts[i]); 
     } 
 }
