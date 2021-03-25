@@ -1,0 +1,1 @@
+File ini berisikan kalimat yang akan ditampilkan pada output standard
