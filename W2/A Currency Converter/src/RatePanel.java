@@ -11,7 +11,8 @@ import javax.swing.*;
 public class RatePanel extends JPanel {
     private double[] rate; // exchange rates 
     private String[] currencyName; 
-    private JLabel result; 
+    private JLabel result;
+    private JTextField currencyInput;
     
     // ------------------------------------------------------------ 
     // Sets up a panel to convert cost from one of 6 currencies 
@@ -34,6 +35,11 @@ public class RatePanel extends JPanel {
         JComboBox currencySelect = new JComboBox(currencyName);
         add(currencySelect);
         currencySelect.addActionListener(new ComboListener());
+        
+        //Add Text Field
+        currencyInput = new JTextField(30);
+        add(currencyInput);
+        currencyInput.addActionListener(new ComboListener());
         
         rate = new double [] {0.0, 1.2103, 0.7351, 
         0.0091, 0.6969, 
@@ -59,8 +65,9 @@ public class RatePanel extends JPanel {
         { 
             JComboBox cSelect = (JComboBox)event.getSource();
             int index = (int) cSelect.getSelectedIndex();
+            
             result.setText ("1 " + currencyName[index] + 
-            " = " + rate[index] + " U.S. Dollars");
+            " = " + (rate[index]*Integer.parseInt(currencyInput.getText())) + " U.S. Dollars");
         } 
     }
 }
