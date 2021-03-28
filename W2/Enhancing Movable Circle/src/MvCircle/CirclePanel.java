@@ -14,6 +14,11 @@ public class CirclePanel extends JPanel
     private final int CIRCLE_SIZE = 50; 
     private int x,y; 
     private Color c; 
+    // Create buttons to move the circle 
+    JButton left = new JButton("Left"); 
+    JButton right = new JButton("Right"); 
+    JButton up = new JButton("Up"); 
+    JButton down = new JButton("Down");
     //--------------------------------------------------------------- 
     // Set up circle and buttons to move it. 
     //--------------------------------------------------------------- 
@@ -25,11 +30,7 @@ public class CirclePanel extends JPanel
         c = Color.green; 
         // Need a border layout to get the buttons on the bottom 
         this.setLayout(new BorderLayout()); 
-        // Create buttons to move the circle 
-        JButton left = new JButton("Left"); 
-        JButton right = new JButton("Right"); 
-        JButton up = new JButton("Up"); 
-        JButton down = new JButton("Down"); 
+         
         // Add listeners to the buttons 
         left.addActionListener(new MoveListener(-20,0)); 
         right.addActionListener(new MoveListener(20,0)); 
@@ -53,7 +54,7 @@ public class CirclePanel extends JPanel
         buttonPanel.add(up); 
         buttonPanel.add(down); 
         // Add the button panel to the bottom of the main panel 
-        this.add(buttonPanel, "South"); 
+        this.add(buttonPanel, "South");
     } 
     //--------------------------------------------------------------- 
     // Draw circle on CirclePanel 
@@ -75,7 +76,7 @@ public class CirclePanel extends JPanel
         // Parameters tell how to move circle at click. 
         //--------------------------------------------------------------- 
         public MoveListener(int dx, int dy) 
-        { 
+        {
             this.dx = dx; 
             this.dy = dy; 
         } 
@@ -83,10 +84,32 @@ public class CirclePanel extends JPanel
         // Change x and y coordinates and repaint. 
         //--------------------------------------------------------------- 
         public void actionPerformed(ActionEvent e) 
-        { 
+        {
+            if(x < 0){
+               x = 0;
+               left.setEnabled(false);
+            }
+            else if(x > 320){
+                x = 320;
+                right.setEnabled(false);
+            }
+            else if(y < 0){
+                y = 0;
+                up.setEnabled(false);
+            }
+            else if(y > 150){
+                y = 150;
+                down.setEnabled(false);
+            }else{
+                left.setEnabled(true);
+                right.setEnabled(true);
+                up.setEnabled(true);
+                down.setEnabled(true);   
+            }
+
             x += dx; 
             y += dy; 
-            repaint(); 
+            repaint();
         } 
     } 
 
